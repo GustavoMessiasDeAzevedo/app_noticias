@@ -98,6 +98,91 @@ class HomePage extends StatelessWidget {
               }).toList(),
             ),
           ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: noticias.length,
+              itemBuilder: (context, index) {
+                final noticia = noticias[index];
+                return Card(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  elevation: 0,
+                  color: Colors.white,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    side: const BorderSide(color: Color(0XFFCBD2D9)),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: double.infinity,
+                        height: 120,
+                        color: const Color(0XFFE4E9EF),
+                        child: const Icon(Icons.image_outlined),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFEFF4F8),
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  child: Text(noticia['categoria']),
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  noticia['data'],
+                                  style: const TextStyle(
+                                    color: Color(0Xff19aa5b1),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              noticia['titulo'],
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF1B2A4A),
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              noticia['resumo'],
+                              style: const TextStyle(
+                                fontSize: 13,
+                                color: Color(0Xffb5b6b79),
+                              ),
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
