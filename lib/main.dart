@@ -1,4 +1,5 @@
 import 'package:app_noticias/home_page.dart';
+import 'package:app_noticias/testeapi.dart';
 import 'package:flutter/material.dart';
 
 void main() {
